@@ -46,7 +46,9 @@ class JavaVersionTestCase(unittest.TestCase):
         self.assertEqual(main.get_java_version(), j_v)
         
   def test_arbitrary_version_in_another_path(self):
-    write_properties("7.3", "tmp")
+    test_dir_name = "tmp"
+    os.makedirs(test_dir_name)
+    write_properties("7.3", test_dir_name)
     self.assertEqual(main.get_java_version(), "17")
 
   def test_missing_file(self):
