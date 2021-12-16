@@ -26,7 +26,7 @@ jobs:
         uses: ./
 
       - name: Check the Java version
-        run: "[[ ${{ steps.java-version-step.outputs.java-version }} = 17 ]]"
+        run: "[[ ${{ steps.java-version-step.outputs.java-version }} -eq 17 ]]"
 
   release:
     needs: [test]
