@@ -22,14 +22,27 @@ runs:
       run: python ${{ github.action_path }}/main.py
       shell: bash
 
-    - name: Output result
-      id: current-java-version
+    - name: Output result from *nix
+      id: unix-result
       if: runner.os != 'Windows'
       run: echo "::set-output name=java-version::$?"
       shell: bash
 
-    - id: current-java-version
+    - name: Output result from Windows
+      id: windows-result
       if: runner.os == 'Windows'
       run: |
         echo "::set-output name=java-version::%errorlevel%"
+      shell: bash
+
+    - id: current-java-version
+      run: |
+        if [[ -z ${{ steps.unix-result.outputs.java-version }} ]]
+        then
+          echo "::set-output name=java-version::%errorlevel%"
+        elif [[ -z ${{ steps.windows-result.outputs.java-version }} ]]
+          echo "::set-output name=java-version::%errorlevel%"
+        else
+          echo "::set-output name=java-version::-1"
+        fi
       shell: bash
