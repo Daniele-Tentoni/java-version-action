@@ -25,10 +25,13 @@ def get_java_version():
   wrapper_re = re.compile(r'version=(\d*\.\d*)')
   wrapper_version = wrapper_re.findall(content)
   if len(wrapper_version) != 1:
-    raise ValueError("Wrapper Versions found: " + wrapper_version)
+    raise ValueError("Wrapper version not found", wrapper_version)
     
   try:
     i = gradle_versions.index(wrapper_version[0])
     return java_versions[i]
   except ValueError:
     raise ValueError("Gradle version not recognized")
+
+if __name__ == '__main__':
+  print(get_java_version())
