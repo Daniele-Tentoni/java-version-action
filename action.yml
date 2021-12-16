@@ -9,6 +9,11 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Install Python 3.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.x"
+
     - id: current-java-version
       run: |
         res=python ${{ github.action_path }}/main.py
