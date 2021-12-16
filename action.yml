@@ -16,9 +16,9 @@ runs:
 
     - name: Try to reinstall dependancies
       run: pip install requests
-      shell: bash
+      shell: pwsh
 
     - name: Execute command
       id: current-java-version
-      run: python ${{ github.action_path }}/main.py ga
-      shell: bash
+      run: python3 ${{ github.action_path }}/main.py ga
+      shell: pwsh
