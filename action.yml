@@ -1,0 +1,16 @@
+name: "Java Version"
+description: "Set the latest Java version for the current gradle version found in the project"
+
+outputs:
+  java-version:
+    description: "Java version set"
+    value: ${{ steps.current-java-version.outputs.java-version }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: current-java-version
+      run: |
+        res=python ${{ github.action_path }}/main.py
+        echo "::set-output name=java-version::$res"
+      shell: bash
