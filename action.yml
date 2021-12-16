@@ -37,12 +37,12 @@ runs:
 
     - id: current-java-version
       run: |
-        if [[ -z ${{ steps.unix-result.outputs.java-version }} ]]
+        if [[ -z ${{ steps.unix-result.outputs.java-version || '' }} ]]
         then
-          echo "::set-output name=java-version::%errorlevel%"
-        elif [[ -z ${{ steps.windows-result.outputs.java-version }} ]]
+          echo "::set-output name=java-version::${{ steps.unix-result.outputs.java-version }}"
+        elif [[ -z ${{ steps.windows-result.outputs.java-version || '' }} ]]
         then
-          echo "::set-output name=java-version::%errorlevel%"
+          echo "::set-output name=java-version::${{ steps.windows-result.outputs.java-version }}"
         else
           echo "::set-output name=java-version::-1"
         fi
