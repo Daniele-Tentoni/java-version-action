@@ -2,6 +2,7 @@ import glob
 from os import path
 import re
 import requests
+import sys
 
 def get_java_version():
   file_path = path.join(".", "**", "gradle-wrapper.properties")
@@ -34,4 +35,8 @@ def get_java_version():
     raise ValueError("Gradle version not recognized")
 
 if __name__ == '__main__':
-  print(get_java_version())
+  version = get_java_version()
+  if len(sys.argv) == 2 and sys.argv[1] == "ga":
+    print(f"::set-output name=java-version::{version}")
+  else:
+    print(version)
