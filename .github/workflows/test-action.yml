@@ -1,0 +1,31 @@
+name: Test Action
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.x"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Create default properties file
+        run: echo "version=7.3" >> gradle-wrapper.properties
+
+      - name: Run this action
+        id: java-version-step
+        uses: ./
+
+      - name: Check the Java version
+        run: "[[ ${{ steps.java-version-step.outputs.java-version }} = 17 ]]"
+        shell: bash
