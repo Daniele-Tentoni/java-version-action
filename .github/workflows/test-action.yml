@@ -26,7 +26,17 @@ jobs:
         uses: ./
 
       - name: Check the Java version
+        if: runner.os != 'Windows'
         run: "[[ ${{ steps.java-version-step.outputs.java-version }} -eq 17 ]]"
+
+      - name: Check the Java version
+        if: runner.os == 'Windows'
+        run: |
+          if ( ${{ steps.java-version-step.outputs.java-version }} -eq 17 )
+          {
+            exit 0
+          }
+          exit 1
 
   release:
     needs: [test]
