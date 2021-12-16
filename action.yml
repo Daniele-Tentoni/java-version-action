@@ -41,6 +41,7 @@ runs:
         then
           echo "::set-output name=java-version::%errorlevel%"
         elif [[ -z ${{ steps.windows-result.outputs.java-version }} ]]
+        then
           echo "::set-output name=java-version::%errorlevel%"
         else
           echo "::set-output name=java-version::-1"
