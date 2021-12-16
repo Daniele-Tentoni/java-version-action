@@ -18,8 +18,18 @@ runs:
       run: pip install requests
       shell: bash
 
+    - name: Execute command
+      run: python ${{ github.action_path }}/main.py
+      shell: bash
+
+    - name: Output result
+      id: current-java-version
+      if: runner.os != 'Windows'
+      run: echo "::set-output name=java-version::$?"
+      shell: bash
+
     - id: current-java-version
+      if: runner.os == 'Windows'
       run: |
-        res=$(python ${{ github.action_path }}/main.py)
-        echo "::set-output name=java-version::$res"
+        echo "::set-output name=java-version::%errorlevel%"
       shell: bash
