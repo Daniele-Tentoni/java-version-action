@@ -27,11 +27,10 @@ jobs:
 
       - name: Check the Java version
         run: "[[ ${{ steps.java-version-step.outputs.java-version }} = 17 ]]"
-        shell: bash
 
   release:
     needs: [test]
-    if: github.event_name != "pull_request"
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
