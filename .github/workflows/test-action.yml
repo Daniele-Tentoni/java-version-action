@@ -18,6 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Try to reinstall dependancies
+        run: pip install requests
+
       - name: Create default properties file
         run: echo "version=7.3" >> gradle-wrapper.properties
 
