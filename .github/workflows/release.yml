@@ -6,11 +6,14 @@ on:
       - main
 
 jobs:
-  test:
+  test-action:
     uses: daniele-tentoni/java-version-action/.github/workflows/test-action.yml@main
+    
+  test-script:
+    uses: daniele-tentoni/java-version-action/.github/workflows/test-script.yml@main
 
   release:
-    needs: [test]
+    needs: [test-action, test-script]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
