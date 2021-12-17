@@ -10,7 +10,8 @@ def get_java_version():
   if len(text_files) != 1:
     raise ValueError("Too many or missing gradle-wrapper file")
   
-  with open(text_files[0], 'r') as wrapper_content:
+  read_mode = 'r'
+  with open(text_files[0], read_mode) as wrapper_content:
     content = wrapper_content.read()
   
   # Search for the line where is defined the distribution url
