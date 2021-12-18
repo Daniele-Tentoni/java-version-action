@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Daniele-Tentoni/java-version-action/compare/1.0.0...1.0.1) (2021-12-18)
+
+
+### Bug Fixes
+
+* add gnupl ([e9920d1](https://github.com/Daniele-Tentoni/java-version-action/commit/e9920d1bb4012bc3a88c66598ecb85b19d9741ad))
+
 # 1.0.0 (2021-12-17)
 
 
