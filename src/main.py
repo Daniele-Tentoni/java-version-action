@@ -5,7 +5,8 @@ import requests
 import sys
 
 def fetch_gradle_compatibility(wrapper_version):
-  """Return the Java Version compatible with given wrapper version.
+  """
+  Return the Java Version compatible with given wrapper version.
 
   Args:
       wrapper_version (double): the current wrapper version.
