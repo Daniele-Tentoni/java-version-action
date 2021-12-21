@@ -1,2 +1,10 @@
+# Python artifacts
+
 __pycache__/
+.coverage
+coverage*/
+coverage.*
+
+# NPM builds
+
 node_modules/
