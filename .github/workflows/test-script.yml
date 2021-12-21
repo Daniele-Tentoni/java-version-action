@@ -8,11 +8,11 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [macos-latest, windows-latest]
         python-version: ["3.x"]
 
     steps:
@@ -28,3 +28,40 @@ jobs:
 
       - name: Run tests with unittest
         run: ./test.sh
+
+  coverage:
+    runs-on: ubuntu-latest
+    name: Test and Coverage on Ubuntu
+    steps:
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependancies
+        run: pip install requests
+
+      - name: Run test with unittest and coverage.py
+        run: ./test.sh -cx
+
+      - name: Upload coverage result
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: coverage.xml
+
+  report:
+    needs: [coverage]
+    runs-on: ubuntu-latest
+    name: codacy-coverage-reporter
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: report
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_TOKEN }}
+          coverage-reports: report/coverage.xml
