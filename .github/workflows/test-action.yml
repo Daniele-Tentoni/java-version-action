@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2.4.0
 
       - name: Create default properties file
-        run: echo "version=7.3" >> gradle-wrapper.properties
+        run: echo "distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.2-bin.zip" >> gradle-wrapper.properties
 
       - name: Run this action
         id: java-version-step

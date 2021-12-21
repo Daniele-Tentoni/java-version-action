@@ -6,6 +6,7 @@ import src.main as main
 
 versions = [['8', '2.0'], ['9', '4.3'], ['10', '4.7'], ['11', '5.0'], ['12', '5.4'], ['13', '6.0'], ['14', '6.3'], ['15', '6.7'], ['16', '7.0'], ['17', '7.3']]
 
+test_dir_name = "tmp"
 properties_file_name = "gradle-wrapper.properties"
 test_dir_name = "tmp"
 
@@ -19,7 +20,7 @@ def write_properties(gradle_version, tmp_path = ""):
   pre_path = os.path.join(".", tmp_path)
   file_path = os.path.join(pre_path, properties_file_name)
   with open(file_path, 'w') as f:
-    f.write("version=" + gradle_version)
+    f.write(f"distributionUrl=https\://services.gradle.org/distributions/gradle-{gradle_version}.2-bin.zip")
     
 def delete_properties():
   """Delete gradle-wrapper.properties file.
@@ -64,6 +65,8 @@ class JavaVersionTestCase(unittest.TestCase):
       
   def tearDown(self):
     delete_properties()
+    if os.path.isdir(test_dir_name):
+      os.rmdir(test_dir_name)
     
 def suite():
   """Gather all the tests from this module in a test suite.

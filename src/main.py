@@ -38,18 +38,22 @@ def get_java_version():
   if len(text_files) != 1:
     raise ValueError("Too many or missing gradle-wrapper file")
   
-  with open(text_files[0], 'r') as wrapper_content:
+  read_mode = 'r'
+  with open(text_files[0], read_mode) as wrapper_content:
     content = wrapper_content.read()
-
-  wrapper_re = re.compile(r'version=(\d*\.\d*)')
-  wrapper_version = wrapper_re.findall(content)
-  if len(wrapper_version) != 1:
-    raise ValueError("Wrapper version not found", wrapper_version)
   
+  # Search for the line where is defined the distribution url
+  wrapper_re = re.compile(r'distributionUrl=.*-(\d*\.\d*).*\.zip')
+  wrapper_version = wrapper_re.search(content)
+  if wrapper_version == None:
+    raise ValueError("Wrapper version not found")
+  
+  # Here we are sure to have the wrapper version
   return fetch_gradle_compatibility(wrapper_version[0])
 
 if __name__ == '__main__':
   version = get_java_version()
+  # Output different if we are in github actions.
   if len(sys.argv) == 2 and sys.argv[1] == "ga":
     print(f"::set-output name=java-version::{version}")
   else:
