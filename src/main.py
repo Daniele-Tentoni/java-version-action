@@ -37,17 +37,17 @@ def get_java_version():
   text_files = glob.glob(file_path, recursive = True)
   if len(text_files) != 1:
     raise ValueError("Too many or missing gradle-wrapper file")
-  
+
   read_mode = 'r'
   with open(text_files[0], read_mode) as wrapper_content:
     content = wrapper_content.read()
-  
+
   # Search for the line where is defined the distribution url
   wrapper_re = re.compile(r'distributionUrl=.*-(\d*\.\d*).*\.zip')
   wrapper_version = wrapper_re.search(content)
   if wrapper_version == None:
     raise ValueError("Wrapper version not found")
-  
+
   # Here we are sure to have the wrapper version
   return fetch_gradle_compatibility(wrapper_version[0])
 
