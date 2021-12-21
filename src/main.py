@@ -25,7 +25,7 @@ def fetch_gradle_compatibility(wrapper_version):
   gradle_versions = gradle_re.findall(r)
   if len(java_versions) != len(gradle_versions):
     raise ValueError()
-    
+
   try:
     i = gradle_versions.index(wrapper_version)
     return java_versions[i]
