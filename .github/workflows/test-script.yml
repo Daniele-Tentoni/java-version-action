@@ -41,7 +41,9 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependancies
-        run: pip install requests
+        run: |
+          pip install coverage
+          pip install requests
 
       - name: Run test with unittest and coverage.py
         run: ./test.sh -cx
@@ -51,6 +53,7 @@ jobs:
         with:
           name: report
           path: coverage.xml
+          if-no-files-found: error
 
   report:
     needs: [coverage]
