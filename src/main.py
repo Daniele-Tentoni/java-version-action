@@ -33,7 +33,7 @@ def fetch_gradle_compatibility(wrapper_version):
   except ValueError:
     raise ValueError("Gradle version not recognized")
 
-def get_java_version():
+def get_wrapper_version():
   file_path = path.join(".", "**", "gradle-wrapper.properties")
   text_files = glob.glob(file_path, recursive = True)
   if len(text_files) != 1:
@@ -49,8 +49,12 @@ def get_java_version():
   if wrapper_version == None:
     raise ValueError("Wrapper version not found")
 
+  return wrapper_version.group(1)
+
+def get_java_version():
+  wrapper_version = get_wrapper_version()
   # Here we are sure to have the wrapper version
-  return fetch_gradle_compatibility(wrapper_version[0])
+  return fetch_gradle_compatibility(wrapper_version)
 
 if __name__ == '__main__':
   version = get_java_version()
