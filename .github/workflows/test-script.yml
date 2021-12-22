@@ -49,20 +49,3 @@ jobs:
           name: report
           path: coverage.xml
           if-no-files-found: error
-
-  report:
-    if: ${{ !startsWith(github.actor, 'semantic-release-bot') }}
-    needs: [coverage]
-    runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
-    steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: report
-
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: coverage.xml
