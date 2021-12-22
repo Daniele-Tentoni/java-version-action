@@ -2,3 +2,4 @@
 
 rm -rf htmlcov
 rm .coverage
+rm coverage.xml
