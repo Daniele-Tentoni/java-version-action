@@ -1,8 +1,5 @@
 name: Run Python Tests
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -66,5 +63,5 @@ jobs:
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
-          project-token: ${{ secrets.CODACY_TOKEN }}
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: coverage.xml
