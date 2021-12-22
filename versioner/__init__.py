@@ -33,14 +33,27 @@ def fetch_gradle_compatibility(wrapper_version):
   except ValueError:
     raise ValueError("Gradle version not recognized")
 
-def get_wrapper_version():
+def find_wrapper_file() -> str:
+  """
+  Return a list of paths matching the gradle-wrapper.properties file name.
+
+  Raises:
+      ValueError: Too many or missing gradle-wrapper.properties files.
+
+  Returns:
+      str: Path to the found gradle-wrapper.properties file.
+  """
   file_path = path.join(".", "**", "gradle-wrapper.properties")
   text_files = glob.glob(file_path, recursive = True)
   if len(text_files) != 1:
-    raise ValueError("Too many or missing gradle-wrapper file")
+    raise ValueError("Too many or missing gradle-wrapper file", text_files)
+  print("Found wrapper in", text_files[0])
+  return text_files[0]
 
+def get_wrapper_version():
+  wrapper_file = find_wrapper_file()
   read_mode = 'r'
-  with open(text_files[0], read_mode) as wrapper_content:
+  with open(wrapper_file, read_mode) as wrapper_content:
     content = wrapper_content.read()
 
   # Search for the line where is defined the distribution url
