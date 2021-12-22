@@ -51,6 +51,7 @@ jobs:
           if-no-files-found: error
 
   report:
+    if: ${{ !startsWith(github.actor, 'semantic-release-bot') }}
     needs: [coverage]
     runs-on: ubuntu-latest
     name: codacy-coverage-reporter
