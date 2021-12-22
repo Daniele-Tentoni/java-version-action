@@ -11,7 +11,8 @@ properties_file_name = "gradle-wrapper.properties"
 test_dir_name = "tmp"
 
 def write_properties(gradle_version, tmp_path = ""):
-  """Write gradle-wrapper.properties file
+  """
+  Write gradle-wrapper.properties file
 
   Args:
       gradle_version (str): Gradle version to write
@@ -23,7 +24,8 @@ def write_properties(gradle_version, tmp_path = ""):
     f.write(f"distributionUrl=https\://services.gradle.org/distributions/gradle-{gradle_version}.2-bin.zip")
     
 def delete_properties():
-  """Delete gradle-wrapper.properties file.
+  """
+  Delete gradle-wrapper.properties file.
 
   Args:
       tmp_path (str): Optional tmp_path
@@ -69,7 +71,8 @@ class JavaVersionTestCase(unittest.TestCase):
       os.rmdir(test_dir_name)
     
 def suite():
-  """Gather all the tests from this module in a test suite.
+  """
+  Gather all the tests from this module in a test suite.
   """
   test_suite = unittest.TestSuite()
   test_suite.addTest(unittest.makeSuite(JavaVersionTestCase))
