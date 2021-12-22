@@ -22,7 +22,7 @@ def write_properties(gradle_version, tmp_path = ""):
   file_path = os.path.join(pre_path, properties_file_name)
   with open(file_path, 'w') as f:
     f.write(f"distributionUrl=https\://services.gradle.org/distributions/gradle-{gradle_version}.2-bin.zip")
-    
+
 def delete_properties():
   """
   Delete gradle-wrapper.properties file.
@@ -43,17 +43,17 @@ def delete_properties():
     print("tmp dir not found")
 
 class JavaVersionTestCase(unittest.TestCase):
-  
+
   def setUp(self):
     delete_properties()
-      
+
   def test_java_version(self):
     for j_v, g_v in versions:
       # self.subTest(msg="Checking if p1 equals p2", p1=p1, p2=p2):
       with self.subTest():
         write_properties(g_v)
         self.assertEqual(main.get_java_version(), j_v)
-        
+
   def test_arbitrary_version_in_another_path(self):
     os.makedirs(test_dir_name)
     write_properties("7.3", test_dir_name)
@@ -64,12 +64,12 @@ class JavaVersionTestCase(unittest.TestCase):
     delete_properties()
     with self.assertRaises(ValueError):
       main.get_java_version()
-      
+
   def tearDown(self):
     delete_properties()
     if os.path.isdir(test_dir_name):
       os.rmdir(test_dir_name)
-    
+
 def suite():
   """
   Gather all the tests from this module in a test suite.
