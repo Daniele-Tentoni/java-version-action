@@ -14,7 +14,7 @@ runs:
       with:
         python-version: "3.x"
 
-    - name: Try to reinstall dependancies
+    - name: Try to reinstall dependencies
       run: pip install requests
       shell: pwsh
 
