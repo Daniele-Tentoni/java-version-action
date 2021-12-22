@@ -1,3 +1,22 @@
+## [1.0.2](https://github.com/Daniele-Tentoni/java-version-action/compare/1.0.1...1.0.2) (2021-12-22)
+
+
+### Bug Fixes
+
+* add a beatiful badge to README. ([f0e19d2](https://github.com/Daniele-Tentoni/java-version-action/commit/f0e19d29d2d72d7d63e0468cd22940e8bebe651e))
+* add a new .gitignore ([0dde03e](https://github.com/Daniele-Tentoni/java-version-action/commit/0dde03e501378e52e7c6bb0c51248e56410e66e8))
+* ignore node modules folder. ([1d57bb6](https://github.com/Daniele-Tentoni/java-version-action/commit/1d57bb65afa0d70397abd8be66145edeb39c6733))
+* install node packages. ([11e0ee0](https://github.com/Daniele-Tentoni/java-version-action/commit/11e0ee0b3288362c762f7d8be3a7777732d01022))
+* missed to checkout the repo -_- ([324ed82](https://github.com/Daniele-Tentoni/java-version-action/commit/324ed820cd292e0e1fdf178662c508599146a271))
+* move codacy report to pull_request_target workflow. ([ba52c08](https://github.com/Daniele-Tentoni/java-version-action/commit/ba52c08a8b36d7771adbe00164b4ce3d9588cb3d))
+* move wrapper versioning to another function ([66d9f6e](https://github.com/Daniele-Tentoni/java-version-action/commit/66d9f6e39ca4514a20d6d7d11eea812d107644c4))
+* multiline docstring start in new line. ([e4fa3b5](https://github.com/Daniele-Tentoni/java-version-action/commit/e4fa3b520d8f98acced60a6da3c4149052eb6939))
+* remove committed ignored file. ([e10fc10](https://github.com/Daniele-Tentoni/java-version-action/commit/e10fc10659172ef70ce42556ff5315caf5ae5127))
+* remove trailing whitespace. ([177b16c](https://github.com/Daniele-Tentoni/java-version-action/commit/177b16cc23a521240f77a524ce62473252f41b30))
+* remove trailing whitespaces. ([75cf0b4](https://github.com/Daniele-Tentoni/java-version-action/commit/75cf0b402955c055e703b7ad2d448d3dab1be22f))
+* right check set variables. ([e587330](https://github.com/Daniele-Tentoni/java-version-action/commit/e5873301aeea19edfebbce3bf9ca7b8a10faddb4))
+* use suggested name for secret. ([c2a6cfa](https://github.com/Daniele-Tentoni/java-version-action/commit/c2a6cfa1ef94c4b3ce5621f8871c45710d7bf322))
+
 ## [1.0.1](https://github.com/Daniele-Tentoni/java-version-action/compare/1.0.0...1.0.1) (2021-12-18)
 
 
