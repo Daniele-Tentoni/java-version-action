@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependancies
+      - name: Install dependencies
         run: pip install requests
 
       - name: Run tests with unittest
@@ -40,7 +40,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install dependancies
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Run test with unittest and coverage.py
