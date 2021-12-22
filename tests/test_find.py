@@ -15,6 +15,11 @@ class TestFindWrapperFile(unittest.TestCase):
     with self.assertRaises(ValueError):
       find_wrapper_file()
 
+  def test_only_one_file(self):
+    write_properties("some")
+    file = find_wrapper_file()
+    self.assertEqual(file, "./gradle-wrapper.properties")
+
   def test_many_files(self):
     os.makedirs(test_dir_name)
     write_properties("7.3", test_dir_name)
