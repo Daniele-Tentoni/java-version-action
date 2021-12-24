@@ -6,15 +6,15 @@
 # x) produce xml
 while getopts crx flag
 do
-    case "${flag}" in
-        c) coverage=true;;
-        r) report=true;;
-        x) xml=true;;
-    esac
+  case "${flag}" in
+    c) coverage=true;;
+    r) report=true;;
+    x) xml=true;;
+  esac
 done
 
 if [[ $coverage = true ]]; then
-  coverage run --source src -m unittest discover
+  coverage run --source versioner -m unittest discover
 fi
 
 if [[ $report = true ]]; then
@@ -26,5 +26,5 @@ if [[ $xml = true ]]; then
 fi
 
 if [[ -z ${coverage+x} && -z ${report+x} && -z ${xml+x} ]]; then
-  python3 -m unittest discover
+  python3 -m unittest discover tests
 fi
