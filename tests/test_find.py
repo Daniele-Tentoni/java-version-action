@@ -2,7 +2,7 @@ import os
 import unittest
 
 from utils import delete_properties, write_properties
-from versioner import find_wrapper_file
+from versioner.versioner import find_wrapper_file
 
 test_dir_name: str = "tmp"
 

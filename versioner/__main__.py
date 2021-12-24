@@ -1,12 +1,7 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-import sys
-from versioner import get_java_version
+"""versioner.__main__: executed when versioner directory is called as script."""
 
-if __name__ == '__main__':
-  version = get_java_version()
-  # Output different if we are in github actions.
-  if len(sys.argv) == 2 and sys.argv[1] == "ga":
-    print(f"::set-output name=java-version::{version}")
-  else:
-    print(version)
+from .versioner import get_java_version
+
+get_java_version()

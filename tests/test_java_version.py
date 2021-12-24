@@ -2,7 +2,7 @@ import os
 import unittest
 
 from utils import delete_properties, write_properties
-from versioner import get_java_version
+from versioner.versioner import get_java_version
 
 test_dir_name = "tmp"
 

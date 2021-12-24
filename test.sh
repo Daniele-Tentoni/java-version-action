@@ -26,5 +26,5 @@ if [[ $xml = true ]]; then
 fi
 
 if [[ -z ${coverage+x} && -z ${report+x} && -z ${xml+x} ]]; then
-  python3 -m unittest discover
+  python3 -m unittest discover tests
 fi
