@@ -6,8 +6,26 @@ on:
       - main
   workflow_call:
 
+env:
+  repo-owner: daniele-tentoni
+  repo-name: gradle-wrapper-example
+
 jobs:
+  # Fetch remote repo to get the most recent tag to use to test action.
+  fetch:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.repo-version.outputs.version }}
+    steps:
+      - name: Fetch remote repo
+        id: repo-version
+        run: |
+          repo=https://github.com/${{ env.repo-owner }}/${{ env.repo-name }}.git
+          v=$(git ls-remote --tags --sort=-v:refname $repo | cut -f 1 | head -n 1)
+          echo "::set-output name=version::$v"
+
   test:
+    needs: [fetch]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -15,13 +33,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.0
+        with:
+          path: action
 
-      - name: Create default properties file
-        run: echo "distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.2-bin.zip" >> gradle-wrapper.properties
+      - name: Checkout example gradle project
+        uses: actions/checkout@v1
+        with:
+          repository: ${{ env.repo-owner }}/${{ env.repo-name }}
+          ref: ${{ needs.fetch.outputs.version }}
+          path: ${{ env.repo-name }}
 
       - name: Run this action
         id: java-version-step
-        uses: ./
+        uses: ./action
 
       - name: Check the Java version
         if: runner.os != 'Windows'
