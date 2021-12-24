@@ -1,8 +1,10 @@
 import os
 import unittest
 
-from utils import *
+from utils import delete_properties, write_properties
 from versioner import get_java_version
+
+test_dir_name = "tmp"
 
 versions = [['8', '2.0'], ['9', '4.3'], ['10', '4.7'], ['11', '5.0'], ['12', '5.4'], ['13', '6.0'], ['14', '6.3'], ['15', '6.7'], ['16', '7.0'], ['17', '7.3']]
 
