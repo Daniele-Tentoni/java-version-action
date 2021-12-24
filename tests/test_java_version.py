@@ -37,9 +37,7 @@ class JavaVersionTestCase(unittest.TestCase):
       os.rmdir(test_dir_name)
 
 def suite():
-  """
-  Gather all the tests from this module in a test suite.
-  """
+  """Gather all the tests from this module in a test suite."""
   test_suite = unittest.TestSuite()
   test_suite.addTest(unittest.makeSuite(JavaVersionTestCase))
   return test_suite
