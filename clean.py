@@ -11,8 +11,8 @@ for file in files_to_delete:
     print(f"Error: {file}: {e.strerror}")
 
 directories_to_delete = ["tmp", "htmlcov"]
-for dir in directories_to_delete:
+for dir_path in directories_to_delete:
   try:
-    os.rmdir(dir)
+    os.rmdir(dir_path)
   except OSError as e:
-    print(f"Error: {file}: {e.strerror}")
+    print(f"Error: {dir_path}: {e.strerror}")
