@@ -5,8 +5,7 @@ properties_file_name = "gradle-wrapper.properties"
 test_dir_name = "tmp"
 
 def write_properties(gradle_version, tmp_path = ""):
-  """
-  Write gradle-wrapper.properties file
+  """Write gradle-wrapper.properties file
 
   Args:
       gradle_version (str): Gradle version to write
