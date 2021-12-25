@@ -7,7 +7,7 @@ on:
 
 jobs:
   test-action:
-    uses: Daniele-Tentoni/java-version-action/.github/workflows/test-action.yml@main
+    uses: daniele-tentoni/java-version-action/.github/workflows/test-action.yml@main
 
   test-script:
     uses: daniele-tentoni/java-version-action/.github/workflows/test-script.yml@main
