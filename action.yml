@@ -1,4 +1,8 @@
 name: "Java Version"
+author: "Daniele Tentoni"
+branding:
+  color: "green"
+  icon: "command"
 description: "Set the latest Java version for the current gradle version found in the project"
 
 outputs:
