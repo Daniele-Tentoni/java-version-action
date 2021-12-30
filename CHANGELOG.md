@@ -1,3 +1,40 @@
+# [2.0.0](https://github.com/Daniele-Tentoni/java-version-action/compare/1.0.2...2.0.0) (2021-12-30)
+
+
+### Bug Fixes
+
+* add test_dir_name local var. ([b066642](https://github.com/Daniele-Tentoni/java-version-action/commit/b0666427ac5877e86142e04357ee555cf3e9d06b))
+* codacy multiline docstrings. ([b3c2dc0](https://github.com/Daniele-Tentoni/java-version-action/commit/b3c2dc0beb1e9bf50a7e7aa036e20ba1d8009720))
+* codacy multilines python docstring. ([4bc91e6](https://github.com/Daniele-Tentoni/java-version-action/commit/4bc91e61941e0d1b5bb36695744b5c25ad167137))
+* correct the path of main script. ([e1bacd9](https://github.com/Daniele-Tentoni/java-version-action/commit/e1bacd98e294cec9d7061591345a1aed58336259))
+* define explicitly utils imported. ([a12100d](https://github.com/Daniele-Tentoni/java-version-action/commit/a12100d40ccabf32e75026ced0f39e87ddb763f1))
+* install action in main dir. ([d810aa2](https://github.com/Daniele-Tentoni/java-version-action/commit/d810aa25dd3d864554c909f84a4c539aac65bf7e))
+* move codacy report to pull_request_target workflow. ([de613a3](https://github.com/Daniele-Tentoni/java-version-action/commit/de613a37319a8e0ff82793f4039e556ef48a669d))
+* right check set variables. ([8e1bbd7](https://github.com/Daniele-Tentoni/java-version-action/commit/8e1bbd7032f08c3576c715dc75365489153d654d))
+* use camel-case repo ref. ([26797d6](https://github.com/Daniele-Tentoni/java-version-action/commit/26797d68539f0ad47933c3882d1ebc3aec36f644))
+* use correct folder for executables. ([655abe9](https://github.com/Daniele-Tentoni/java-version-action/commit/655abe9d4cf89e61f80ad3b07b92519e477b9af7))
+* use suggested name for secret. ([8394150](https://github.com/Daniele-Tentoni/java-version-action/commit/839415024f31817acca749809bae028bab79478c))
+* use the correct script. ([346da16](https://github.com/Daniele-Tentoni/java-version-action/commit/346da163a3fe3c4140c6b57aae202fc3f881ffb3))
+* W0622 redefined buildint type. ([e62dcd6](https://github.com/Daniele-Tentoni/java-version-action/commit/e62dcd60a2b921a33c36b59a0b3b2ead4ad4face))
+
+
+### Features
+
+* clean script remove tmp folder too. ([4a98d17](https://github.com/Daniele-Tentoni/java-version-action/commit/4a98d17e215e3cf4277be76fcd7a18cd062cd73a))
+* New main dir runner. ([8830193](https://github.com/Daniele-Tentoni/java-version-action/commit/883019361ebfe0d9f4ec619ec7247950a22ae429))
+* refactor the code in test and script. ([d068def](https://github.com/Daniele-Tentoni/java-version-action/commit/d068def8637e4274de58dcb412f275df9cc6a677))
+* versioner package runnable. ([3e3eeb5](https://github.com/Daniele-Tentoni/java-version-action/commit/3e3eeb5f80c337109b69c1e24e2aab8694218492))
+
+
+### Performance Improvements
+
+* new versioner package. ([c045bb2](https://github.com/Daniele-Tentoni/java-version-action/commit/c045bb2e44e2e983687a7bcc48851511b2b8e70f))
+
+
+### BREAKING CHANGES
+
+* Now the action have inside a versioner package with all business logic inside. Refer to that in your code.
+
 ## [1.0.2](https://github.com/Daniele-Tentoni/java-version-action/compare/1.0.1...1.0.2) (2021-12-22)
 
 
