@@ -7,8 +7,8 @@ on:
   workflow_call:
 
 env:
-  repo-owner: daniele-tentoni
-  repo-name: gradle-wrapper-example
+  owner: daniele-tentoni
+  repo: gradle-wrapper-example
 
 jobs:
   # Fetch remote repo to get the most recent tag to use to test action.
@@ -20,7 +20,7 @@ jobs:
       - name: Fetch remote repo
         id: repo-version
         run: |
-          repo=https://github.com/${{ env.repo-owner }}/${{ env.repo-name }}.git
+          repo=https://github.com/${{ env.owner }}/${{ env.repo }}.git
           v=$(git ls-remote --tags --sort=-v:refname $repo | cut -f 1 | head -n 1)
           echo "::set-output name=version::$v"
 
@@ -37,13 +37,13 @@ jobs:
       - name: Checkout example gradle project
         uses: actions/checkout@v2
         with:
-          repository: ${{ env.repo-owner }}/${{ env.repo-name }}
+          repository: ${{ env.owner }}/${{ env.repo }}
           ref: ${{ needs.fetch.outputs.version }}
-          path: ${{ env.repo-name }}
+          path: ${{ env.repo }}
 
       - name: Run this action
         id: java-version-step
-        uses: .
+        uses: ./
 
       - name: Check the Java version
         if: runner.os != 'Windows'
