@@ -1,8 +1,10 @@
+# Releases are triggered by commits on main branch
 branches: "main"
 tagFormat: "${version}"
 plugins:
   - "@semantic-release/commit-analyzer"
   - "@semantic-release/release-notes-generator"
+  - "@semantic-release/license"
   - "@semantic-release/changelog"
   - "@semantic-release/github"
   - "@semantic-release/git"
