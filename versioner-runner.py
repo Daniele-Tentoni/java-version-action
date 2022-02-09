@@ -8,5 +8,8 @@ if __name__ == '__main__':
   # Output different if we are in github actions.
   if len(sys.argv) == 2 and sys.argv[1] == "ga":
     print(f"::set-output name=java-version::{version}")
+  elif 'help' in sys.argv:
+    print("usage: ./versioner-runner.py ga")
+    print("Output the least Java version supported for the current Gradle wrapper.")
   else:
     print(version)
