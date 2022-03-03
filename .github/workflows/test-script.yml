@@ -44,7 +44,7 @@ jobs:
         run: ./test.sh -cx
 
       - name: Upload coverage result
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: report
           path: coverage.xml
