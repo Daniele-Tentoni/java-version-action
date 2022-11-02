@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/Daniele-Tentoni/java-version-action/compare/2.0.0...2.0.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* **cli:** add an help 'subcommand' ([c5920b2](https://github.com/Daniele-Tentoni/java-version-action/commit/c5920b22d9c7fcbff77a0a62e9dac80279c4e850))
+* support new format of gradle compatibility page ([0aab55e](https://github.com/Daniele-Tentoni/java-version-action/commit/0aab55efa17bc23e88a04d8d6992f526b79e258f))
+
 # [2.0.0](https://github.com/Daniele-Tentoni/java-version-action/compare/1.0.2...2.0.0) (2021-12-30)
 
 
