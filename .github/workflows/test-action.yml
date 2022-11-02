@@ -19,10 +19,11 @@ jobs:
     steps:
       - name: Fetch remote repo
         id: repo-version
+        # echo "::set-output name=version::$v"
         run: |
           repo=https://github.com/${{ env.owner }}/${{ env.repo }}.git
           v=$(git ls-remote --tags --sort=-v:refname $repo | cut -f 1 | head -n 1)
-          echo "::set-output name=version::$v"
+          echo "{version}={$v}" >> $GITHUB_OUTPUT
 
   test:
     needs: [fetch]
