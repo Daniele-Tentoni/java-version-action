@@ -14,7 +14,7 @@ def write_properties(gradle_version, tmp_path = ""):
   pre_path = os.path.join(".", tmp_path)
   file_path = os.path.join(pre_path, properties_file_name)
   with open(file_path, 'w') as f:
-    f.write(f"distributionUrl=https\://services.gradle.org/distributions/gradle-{gradle_version}.2-bin.zip")
+    f.write(f"distributionUrl=https\://services.gradle.org/distributions/gradle-{gradle_version}-bin.zip")
 
 def delete_properties():
   """
