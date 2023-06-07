@@ -48,12 +48,12 @@ jobs:
 
       - name: Check the Java version
         if: runner.os != 'Windows'
-        run: "[[ ${{ steps.java-version-step.outputs.java-version }} -eq 17 ]]"
+        run: "[[ ${{ steps.java-version-step.outputs.java-version }} -eq 19 ]]"
 
       - name: Check the Java version
         if: runner.os == 'Windows'
         run: |
-          if ( ${{ steps.java-version-step.outputs.java-version }} -eq 17 )
+          if ( ${{ steps.java-version-step.outputs.java-version }} -eq 19 )
           {
             exit 0
           }
